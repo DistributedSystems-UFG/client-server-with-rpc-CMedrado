@@ -3,13 +3,14 @@ from constRPYC import *
 from rpyc.utils.server import ThreadedServer
 
 class DBList(rpyc.Service):
-  value = []
-
+  def __init__(self):
+        self.value = []
+        
   def exposed_append(self, data):
     self.value = self.value + [data]
     return self.value
 
-   def exposed_insert(self, index, data):
+  def exposed_insert(self, index, data):
         self.value.insert(index, data)
         return self.value
     
