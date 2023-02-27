@@ -1,5 +1,7 @@
 # client-server-with-rpc-CMedrado
  
+[Video](https://youtu.be/QDLTQ9XMxhY) 
+ 
 As diferenças entre construir a aplicação diretamente sobre sockets e com o uso de suporte de RPC
 
 Quando escrevemos uma aplicação que usa sockets, precisamos lidar diretamente com a comunicação entre cliente e servidor, definindo os formatos de mensagens, estabelecendo conexões, gerenciando erros e assim por diante. É como se precisássemos "inventar a roda" toda vez que quiséssemos criar uma aplicação que se comunica através da rede.
