@@ -3,32 +3,32 @@ from constRPYC import *
 from rpyc.utils.server import ThreadedServer
 
 class DBList(rpyc.Service):
-    value = []
+    def __init__(self):
+        self.value = []
 
     def exposed_append(self, data):
-        self.value = self.value + [data]
+        self.value.append(data)
         return self.value
 
     def exposed_value(self):
         return self.value
 
     def exposed_search(self, data):
-        result = []
-        for item in self.value:
-            if data in item:
-                result.append(item)
-        return result
+        if data in self.value:
+            print(f"O elemento {data} está na lista")
+        else:
+            print(f"O elemento {data} não está na lista")
 
     def exposed_remove(self, data):
-        self.value = [item for item in self.value if data not in item]
+        self.value.remove(data)
         return self.value
 
-    def exposed_insert(self, data, index):
+    def exposed_insert(self, index, data):
         self.value.insert(index, data)
         return self.value
 
     def exposed_sort(self):
-        self.value = sorted(self.value)
+        self.value.sort()
         return self.value
 
 if __name__ == "__main__":
